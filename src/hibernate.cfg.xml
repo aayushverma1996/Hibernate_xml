@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-5.3.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- This property makes Hibernate generate the appropriate SQL for the chosen database. The below is for mysql database-->
+        <property name = "hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!--This property is to show the generated sql by hibernate while running of application for debugging -->
+        <property name="show_sql">true</property>
+
+        <!--This is to  specify driver. Here we use mysql jdbc driver. For this we have added external appropriate mysql connector in the class path-->
+        <property name = "hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <!--This is to specify database name -->
+        <property name = "hibernate.connection.url">jdbc:mysql://localhost/test</property>
+
+        <!--This specifies database user -->
+        <property name="connection.username">user</property>
+
+        <!-- This specifies database specific user's  password-->
+        <property name="connection.password">password</property>
+
+        <!--Limits the number of connections waiting in the Hibernate database connection pool.-->
+        <property name="connection.pool_size">5</property>
+
+        <!--Specifies  Hibernate ddl automatically according to  (create, create-drop, validate, update)-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- defines mapping xml's for creating/updating tables in database for respective classes -->
+        <mapping resource="employee.hbm.xml"/>
+    </session-factory>
+
+</hibernate-configuration>
